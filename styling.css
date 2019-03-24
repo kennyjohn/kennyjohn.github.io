@@ -1,0 +1,205 @@
+html {
+    font-size: 62.5%;
+}
+
+body, html {
+    height: 100%;
+    line-height: 1.5;
+    font-family: Roboto, sans-serif;
+    background: #1a1a1a;
+}
+
+/* NAVBAR ITEMS */
+.Navbar {
+    /*https://medium.freecodecamp.org/how-to-build-a-responsive-navbar-with-a-toggle-menu-using-flexbox-3438e1d08783*/
+    display: flex;
+}
+
+.Navbar__Items {
+    display: flex;
+    padding: 2rem;
+}
+
+.Navbar__Items--right {
+    margin-left: auto;
+}
+
+.fab {
+    font-size: 3.2rem;
+    color: white;
+    margin: 0 0.75rem;
+}
+
+/* HERO SECTION */
+#Hero__Header--selfie {
+    border-radius: 50%;
+    margin: 2.75rem auto;
+}
+
+.Hero__Background { 
+    /* https://i.pinimg.com/originals/c5/cd/a1/c5cda1739bb6716bcdb9e77191450eea.jpg */
+    max-height: 75rem;
+    background: url('images/Hero-Background.jpg'); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: auto; overflow-y: hidden; overflow-x: hidden;
+}
+
+.Hero__Header {
+    text-align: center;
+    padding: 5rem 0;
+    background: linear-gradient(transparent, #1a1a1a);
+}
+
+.Hero__Header img {
+    width: 23rem; height: 23rem;
+}
+
+.Hero__Header--bio {
+    font-size: 1.6rem;
+    padding: 1rem;
+    width: 65%;
+    margin: 0 auto;
+    background: none;
+    color: white;
+}
+
+/* https://codepen.io/bisaillonyannick/pen/pvZeGg */
+.arrow {
+    display: inline-block;
+  }
+
+.bounce {
+    -moz-animation: bounce 2s infinite;
+    -webkit-animation: bounce 2s infinite;
+    animation: bounce 2s infinite;
+}
+
+.bounce a {
+    color: white;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-5px);
+    }
+    60% {
+      transform: translateY(-2px);
+    }
+}
+
+/* BUTTONS */
+.Buttons {
+    border-radius: .25rem;
+    color: white;
+    padding: .5rem 1rem;
+    margin: 1.75rem 1rem 3rem 1rem;
+    transition: color .15s ease-in-out,
+    background-color .15s ease-in-out,
+    border-color .15s ease-in-out
+}
+
+.Buttons__Bio--CTA {
+    background: #28a745;
+    border-color: #28a745;
+}
+
+.Buttons__Bio--CTA:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.Buttons__Projects--CTA {
+    background: #007bff;
+    border-color: #007bff;
+    margin: 0.5rem 0;
+    width: 10rem;
+}
+
+.Buttons__Projects--CTA:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+/* PROJECTS AREA */
+.Projects-Container {
+    color: white;
+    padding-top: 2rem;
+}
+
+.Projects-Container__Card {
+    display: flex;
+    padding: 3.5rem 3rem 3rem;
+    width: 80%;
+    margin: 4rem auto;
+    background: #333;
+    box-shadow: 0px 4px 6px 0 #454545; /* card effect */
+    border: 1px solid transparent;
+    transition: 0.3s;
+}
+.Projects-Container__Card:hover {
+    box-shadow: 0px 8px 12px 0 #454545;
+    border: 1px solid #1a1a1a;
+}
+
+.Projects-Container__Card--column {
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.Projects-Container__Card--column a {
+    width: 17rem;
+}
+
+.Projects-Container__Card img {
+    max-width: 55rem;
+    height: auto;
+    max-height: 32.5em;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
+.Projects-Container__Card > div {
+    padding: 0 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} 
+
+h3 {
+    font-family: Arial;
+    margin-top: 0;
+    letter-spacing: 0.1rem;
+    color: white;
+    text-shadow: 0px 0px 30px black;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+@media (max-width: 1280px) { 
+    .Projects-Container__Card {
+        flex-direction: column;
+    }
+    .Projects-Container__Card img {
+        max-height: 50em;
+    }
+    .Projects-Container__Card > div {
+        padding: 0;
+        padding-top: 2.5em;
+        max-width: 65rem;
+        margin: 0 auto;
+    }
+    .Projects-Container__Card > img {
+        order: -1;
+    }
+  }
+
+@media (min-width: 768px) {
+    .Hero__Header--bio {
+        width: 30%;
+    }
+}

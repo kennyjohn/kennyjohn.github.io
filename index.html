@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Kenny John">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="dynamic.js"></script>
+    <link rel="stylesheet" href="styling.css">
+    <title>Kenny John</title>
+</head>
+
+<body>
+    <div class="Hero__Background">
+        <div class="Navbar">
+            <nav class="Navbar__Items Navbar__Items--right">
+                <div class="Navbar__Link">
+                    <a href="https://www.linkedin.com/in/kenny-john/">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+                <div class="Navbar__Link">
+                    <a href="https://github.com/kennyjohn">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </nav>
+        </div>
+        <div class="Hero__Header">
+            <img id="Hero__Header--selfie" src="images/Hero-Header_Img.jpg" alt="My Personal Picture"/>
+            <p class="Hero__Header Hero__Header--bio">
+                Hey there! I’m Kenny John and I’m a front-end developer. I’ve built a few interesting projects that I’d love for you to check out below. If you have any questions, get in touch!
+            </p>
+
+            <button class="Buttons Buttons__Bio--CTA" id="projects-cta">
+                <div class="arrow bounce">
+                        Personal Projects&nbsp;
+                    <a class="fa fa-angle-down" href="#"></a>
+                </div>
+            </button>  
+        </div>
+    </div>
+    <div class="Projects-Container">
+        <script> fillContainer() </script>
+    </div>
+
+    <script> </script> <!-- quick fix for CSS transition issue -->
+</body>
+</html>

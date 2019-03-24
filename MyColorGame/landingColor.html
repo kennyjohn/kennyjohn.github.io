@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Two-Player Color Game</title>
+
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" type="text/css" href="styleColor.css">
+</head>
+
+<body>
+    <h1>The Two-Player
+        <br />
+        <span id="rgb">(x, y, z)</span>
+        <br />
+        Color Game</h1>
+    <div id="menu">
+      <button id="reset">New Colors</button>
+    	<span id="message"></span>
+    	<button class="mode selected">Easy</button>
+      <button class="mode">Medium</button>
+    	<button class="mode">Hard</button>
+    </div>
+
+    <div id="container">
+        <div class="square"></div>
+		<div class="square"></div>
+		<div class="square"></div>
+		<div class="square"></div>
+		<div class="square"></div>
+		<div class="square"></div>
+        <div class="square"></div>
+		<div class="square"></div>
+		<div class="square"></div>
+        <button id="resetScore">Reset Score</button>
+        <h3>It is currently <span id="indicate-turn"></span>'s turn</h3>
+        <div id="scoreboard">
+            <h2>Player 1: <span id="score_p1">0</span></h2>
+            <h2>Player 2: <span id="score_p2">0</span></h2>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="interactColor.js"></script>
+
+</body>
+</html>
