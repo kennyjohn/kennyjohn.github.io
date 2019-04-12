@@ -1,78 +1,79 @@
+// Future feature resources:
+// 	- https://michalsnik.github.io/aos/
+// 	- https://css-tricks.com/aos-css-driven-scroll-animation-library/
+// 	- https://github.com/michalsnik/aos
+// 	- https://www.superhi.com/blog/how-to-add-web-design-elements-that-fade-in-and-out-on-scroll 
+
 const projects = [
 	{
 		name: "Remotivate",
 		link: "http://remotivate.herokuapp.com/",
-		ref: "images/Remotivate.jpg",
-		description: "I have come across some very inspirational people that have affected the way I approach every day. Some days are harder than others, but Remotivate is intended to motivate you even when you encounter these difficult days. The goal of the application is to quickly remind yourself of the things that drive you every day.",
-		githubLink: "https://github.com/kennyjohn/Remotivate"
+		ref: "images/Remotivate.png",
+		description: "I have discovered some very inspirational people that have affected the way I approach every day. With all that I have learned from them, I realized that losing motivation is inevitable. Remotivate is intended to let you reflect on the things that mean the most to you — in the form of a quote, video, or image — and quickly remind yourself of the reasons to <em>keep going</em>.",
+		githubLink: "https://github.com/kennyjohn/Remotivate",
+		tools: "React, Redux, Sass, Firebase, Webpack"
 	},
 	{	
 		name: "Parks and 'Marks",
 		link: "https://shrouded-cove-68295.herokuapp.com/",
 		ref: "images/Parks-And-Marks.png",
-		description: "The idea behind this project is to generate community awareness and appreciation for the parks and landmarks in my city. My hopes are to benefit the communities of other cities as well. Through this web application, I primarily experimented with basic Node.js, Express.js, MongoDB, and NoSQL. Users can create an account to leave comments, make suggestions, and share experiences for other visitors.",
-		githubLink: "https://github.com/kennyjohn/ParksAndMarks"
+		description: "The idea behind this project is to generate community awareness and appreciation for the parks and landmarks in my city. Users can create an account to leave comments, make suggestions, and share experiences with other visitors.",
+		githubLink: "https://github.com/kennyjohn/ParksAndMarks",
+		tools: "Node, JavaScript, MongoDB, Express"
 	},
 	{
 		name: "RGB Game",
 		link: "MyColorGame/landingColor.html",
-		ref: "images/RGB_Game.png", 
-		description: "Inspired by Colt Steele’s <a href='https://www.udemy.com/the-web-developer-bootcamp/learn/v4/content'>Color Game</a>, this project aims to teach the RGB color model. Depending on the RGB color value given at the top, the player should select the square color that corresponds with the given RGB color value. I implemented a score system and turned the previous project into a two-player game. If the current player presses “New Colors” before the game is over, the opposite player is automatically given a point. Otherwise, the winner of each round is determined by the number of tries it takes for the player to choose the corresponding color.",
-		githubLink: "https://github.com/kennyjohn/kennyjohn.github.io/tree/master/MyColorGame"
+		ref: "images/RGB-Game.png", 
+		description: "Depending on the RGB color value given at the top, the player selects the square that corresponds with the given RGB color value. If the current player presses “New Colors” before the game is over, they forfeit the round and give their opponent a point. The winner of each round is determined by the number of tries it takes to select the correct color.",
+		githubLink: "https://github.com/kennyjohn/kennyjohn.github.io/tree/master/MyColorGame",
+		tools: "JavaScript, HTML, CSS"
 	},
 	{
 		name: "Stat Tracker",
 		link: "http://www.flagfootballstattracker.com/#/create-league",
 		ref: "images/Stat-Tracker.png",
-		description: "Stat Tracker is an application that I built with my Senior Design group at the University of California, Irvine. Working closely with the designer and the back-end team, I contributed by implementing the home page, login page, registration page, and a page that will allow recreational flag league owners to add a league to their account. Through this process, I learned about the MEAN stack, and gained more experience with HTML, CSS, and JavaScript. The pages that I implemented are essential components to the objective of the application because it will allow league owners to register leagues and ultimately generate revenue for the company.",
-		githubLink: undefined
+		description: "Stat Tracker is an application that I built with my Senior Design group at the University of California, Irvine. Working closely with the designer and the back-end team, I contributed by implementing the home page, login page, registration page, and a page that will allow recreational flag league owners to add a league to their account. The pages that I implemented will allow league owners to register leagues and ultimately generate revenue for the company.",
+		githubLink: undefined,
+		tools: "Express, JavaScript, MongoDB, Node"
 	}
-];
+], projectHexCodes = ['#DE4848', '#6598DE', '#3ACAC9', '#72C2A7']; // Remotivate, Parks & Marks, RGB Game, Stat Tracker
 
 const fillContainer = () => {
 	let container = document.querySelector('.Projects-Container');
-	projects.map( (project, index) => {
+	projects.map((project, index) => {
 		let wrapper = document.createElement('div');
 		wrapper.className = 'Projects-Container__Card';
-		if(index % 2 == 0) {
-			wrapper.innerHTML = `
-			<img class="Projects-Container__Card--column" src=${project.ref} alt=${project.name}>
-			<div class="Projects-Container__Card--column">
-				<h3>${project.name} </h3>
-				<a href=${project.link}><p>Check out the website here</p></a>
+		wrapper.innerHTML = `
+		<div class="Projects-Container__Card--column">
+			<div class="Projects-Container__Card--column-text">
+				<h3 class="h3--Responsive">${project.name}</h3>
+				<p><em>${project.tools}</em></p>
+				<a href=${project.link} class="Projects-Container__Card--link">Check out the website here</a>
 				<p>
 					${project.description}	
 				</p>
-				<a href=${project.githubLink}><button class="Buttons Buttons__Projects--CTA">Github Code</button></a>
+				${index === 3 ? 
+					`<button class="Buttons Buttons__Projects--CTA-Disabled">Private Repo</button>
+				</div>` :
+				`<a href=${project.githubLink}><button class="Buttons Buttons__Projects--CTA">Github Code</button></a>`}
 			</div>
-			`;
-		} else if(index === 3) {
-			wrapper.innerHTML = `
-			<div class="Projects-Container__Card--column">
-				<h3>${project.name} </h3>
-				<a href=${project.link}><p>Check out the website here</p></a>
-				<p>
-					${project.description}	
-				</p>
-			</div>
-			<img class="Projects-Container__Card--column" src=${project.ref} alt=${project.name}>
-			`;
-		} else {
-			wrapper.innerHTML = `
-			<div class="Projects-Container__Card--column">
-				<h3>${project.name} </h3>
-				<a href=${project.link}><p>Check out the website here</p></a>
-				<p>
-					${project.description}	
-				</p>
-				<a href=${project.githubLink}><button class="Buttons Buttons__Projects--CTA">Github Code</button></a>
-			</div>
-			<img class="Projects-Container__Card--column" src=${project.ref} alt=${project.name}>
-			`;
-		}
+		</div>
+		<img class="Projects-Container__Card--column" src=${project.ref} alt=${project.name}>
+		`;
 		container.appendChild(wrapper);
 	});
 };
+
+const addContainerBorders = () => {
+	projectHexCodes.map((code, index) => {
+		const borderedContainer = document.querySelectorAll('.Projects-Container__Card--column-text');
+		Array.from(borderedContainer)[index].style.borderLeft = `1rem solid ${code}`;
+
+		const h3Headers = document.querySelectorAll('.h3--Responsive');
+		Array.from(h3Headers)[index].style.borderTop = `1rem solid ${code}`;
+	});
+}
 
 $(document).ready(function() { // once the whole page is ready
 	var scrollButton = $('.Buttons__Bio--CTA');
