@@ -60,7 +60,7 @@ body, html {
 }
 
 .Hero__Header h1 {
-    font-weight: bolder;
+    font-weight: 500;
     font-size: 5.4rem;
 }
 
@@ -189,7 +189,7 @@ h3 {
     margin-top: 0;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
-    font-weight: bolder;
+    font-weight: 500;
     font-size: 3.2rem;
     width: 90%; /* change this value if there is a longer project name */
 }
