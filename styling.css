@@ -1,3 +1,11 @@
+:root {
+    /* used to define CSS variables */
+    --page-left-margin: 15rem;
+    --success-green: #28a745;
+    --primary-blue: #007bff;
+    --secondary-gray: #8c8c8c;
+}
+
 html {
     font-size: 62.5%;
 }
@@ -5,8 +13,7 @@ html {
 body, html {
     height: 100%;
     line-height: 1.5;
-    font-family: Roboto, sans-serif;
-    background: #1a1a1a;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* NAVBAR ITEMS */
@@ -26,20 +33,14 @@ body, html {
 
 .fab {
     font-size: 3.2rem;
-    color: white;
+    color: black;
     margin: 0 0.75rem;
 }
 
 /* HERO SECTION */
-#Hero__Header--selfie {
-    border-radius: 50%;
-    margin: 2.75rem auto;
-}
-
 .Hero__Background { 
-    /* https://i.pinimg.com/originals/c5/cd/a1/c5cda1739bb6716bcdb9e77191450eea.jpg */
     max-height: 75rem;
-    background: url('images/Hero-Background.jpg'); 
+    background: white;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -47,23 +48,22 @@ body, html {
 }
 
 .Hero__Header {
-    text-align: center;
-    padding: 5rem 0;
-    background: linear-gradient(transparent, #1a1a1a);
-}
-
-.Hero__Header img {
-    width: 23rem; height: 23rem;
+    padding: 5rem var(--page-left-margin);
 }
 
 .Hero__Header--bio {
-    font-size: 1.6rem;
-    padding: 1rem;
-    width: 65%;
-    margin: 0 auto;
-    background: none;
-    color: white;
+    font-size: 2.4rem;
+    padding: 1rem 0;
+    color: black;
+    font-weight: 100;
+    max-width: 75%;
 }
+
+.Hero__Header h1 {
+    font-weight: bolder;
+    font-size: 5.4rem;
+}
+
 
 /* https://codepen.io/bisaillonyannick/pen/pvZeGg */
 .arrow {
@@ -85,7 +85,7 @@ body, html {
       transform: translateY(0);
     }
     40% {
-      transform: translateY(-5px);
+      transform: translateY(-5.5px);
     }
     60% {
       transform: translateY(-2px);
@@ -97,15 +97,17 @@ body, html {
     border-radius: .25rem;
     color: white;
     padding: .5rem 1rem;
-    margin: 1.75rem 1rem 3rem 1rem;
+    margin: 2rem 0;
     transition: color .15s ease-in-out,
     background-color .15s ease-in-out,
-    border-color .15s ease-in-out
+    border-color .15s ease-in-out;
+    font-size: 1.6rem;
+    border: none;
 }
 
 .Buttons__Bio--CTA {
-    background: #28a745;
-    border-color: #28a745;
+    background: var(--success-green);
+    border-color: var(--success-green);
 }
 
 .Buttons__Bio--CTA:hover {
@@ -114,10 +116,18 @@ body, html {
 }
 
 .Buttons__Projects--CTA {
-    background: #007bff;
-    border-color: #007bff;
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
     margin: 0.5rem 0;
-    width: 10rem;
+    width: 12rem;
+}
+
+.Buttons__Projects--CTA-Disabled {
+    background:  var(--secondary-gray);
+    border-color:  var(--secondary-gray);
+    color:   #bfbfbf;
+    margin: 0.5rem 0;
+    width: 12rem;
 }
 
 .Buttons__Projects--CTA:hover {
@@ -127,23 +137,17 @@ body, html {
 
 /* PROJECTS AREA */
 .Projects-Container {
-    color: white;
+    color: black;
     padding-top: 2rem;
+    font-size: 1.8rem;
 }
 
 .Projects-Container__Card {
     display: flex;
-    padding: 3.5rem 3rem 3rem;
+    padding: 3rem 0;
     width: 80%;
     margin: 4rem auto;
-    background: #333;
-    box-shadow: 0px 4px 6px 0 #454545; /* card effect */
-    border: 1px solid transparent;
     transition: 0.3s;
-}
-.Projects-Container__Card:hover {
-    box-shadow: 0px 8px 12px 0 #454545;
-    border: 1px solid #1a1a1a;
 }
 
 .Projects-Container__Card--column {
@@ -151,33 +155,46 @@ body, html {
     word-wrap: break-word;
 }
 
+.Projects-Container__Card--column p {
+    font-weight: 100;
+    padding-right: 3rem;
+}
+
 .Projects-Container__Card--column a {
-    width: 17rem;
+    width: 25rem;
+    padding: 1.5rem 0;
+}
+
+.Projects-Container__Card--column-text {
+    border-left: 1rem solid 
+
+    ;
+    position: relative;
+    left: -4rem;
+    padding-left: 4rem;
 }
 
 .Projects-Container__Card img {
-    max-width: 55rem;
-    height: auto;
-    max-height: 32.5em;
+    /* must change max-height, and -width if integrating new pictures */
+    max-height: 36rem;
+    max-width: 85rem;
     margin: 0 auto;
-    border: 1px solid black;
+    border: 1px solid var(--secondary-gray);
 }
 
 .Projects-Container__Card > div {
-    padding: 0 3em;
     display: flex;
     flex-direction: column;
     justify-content: center;
 } 
 
 h3 {
-    font-family: Arial;
     margin-top: 0;
     letter-spacing: 0.1rem;
-    color: white;
-    text-shadow: 0px 0px 30px black;
     text-transform: uppercase;
-    font-weight: 900;
+    font-weight: bolder;
+    font-size: 3.2rem;
+    width: 90%; /* change this value if there is a longer project name */
 }
 
 @media (max-width: 1280px) { 
@@ -185,7 +202,8 @@ h3 {
         flex-direction: column;
     }
     .Projects-Container__Card img {
-        max-height: 50em;
+        max-height: 41em;
+        max-width: 65rem;
     }
     .Projects-Container__Card > div {
         padding: 0;
@@ -195,11 +213,40 @@ h3 {
     }
     .Projects-Container__Card > img {
         order: -1;
+        width: 100%;
+    }
+    .Hero__Header {
+        padding: 10%;
+    }
+    .Hero__Header--bio {
+        max-width: 74%;
+        padding: 0;
     }
   }
 
-@media (min-width: 768px) {
-    .Hero__Header--bio {
-        width: 30%;
+@media (max-width: 768px) {
+    .Projects-Container__Card img {
+        max-height: 45em;
+        max-width: 65rem;
+    }
+    .Projects-Container__Card > div {
+        padding: 0;
+        padding-top: 2.5em;
+        max-width: 65rem;
+        margin: 0 auto;
+    }
+    .Projects-Container__Card--column-text {
+        border: none !important;
+		position: static;
+        padding-left: 0;
+    }
+    .h3--Responsive {
+        padding-top: 2rem;
+    }
+}
+
+@media (min-width: 769px) {
+    .h3--Responsive {
+        border: none !important;
     }
 }
