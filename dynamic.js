@@ -50,7 +50,7 @@ const fillContainer = () => {
 				<h3 class="h3--Responsive">${project.name}</h3>
 				<p><em>${project.tools}</em></p>
 				<a href=${project.link} class="Projects-Container__Card--link">Check out the website here</a>
-				<p class="Projects-Container__Card--description">
+				<p>
 					${project.description}	
 				</p>
 				${index === 3 ? 

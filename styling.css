@@ -156,12 +156,8 @@ body, html {
 }
 
 .Projects-Container__Card--column p {
-    font-weight: 200;
+    font-weight: 400;
     padding-right: 3rem;
-}
-
-.Projects-Container__Card--description {
-    font-weight: 400 !important;
 }
 
 .Projects-Container__Card--column a {
