@@ -46,11 +46,11 @@ const fillContainer = () => {
 		wrapper.className = 'Projects-Container__Card';
 		wrapper.innerHTML = `
 		<div class="Projects-Container__Card--column">
-			<div class="Projects-Container__Card--column-text">
+			<div class="Projects-Container__Card--overview">
 				<h3 class="h3--Responsive">${project.name}</h3>
 				<p><em>${project.tools}</em></p>
 				<a href=${project.link} class="Projects-Container__Card--link">Check out the website here</a>
-				<p>
+				<p class="Projects-Container__Card--description">
 					${project.description}	
 				</p>
 				${index === 3 ? 
@@ -67,7 +67,7 @@ const fillContainer = () => {
 
 const addContainerBorders = () => {
 	projectHexCodes.map((code, index) => {
-		const borderedContainer = document.querySelectorAll('.Projects-Container__Card--column-text');
+		const borderedContainer = document.querySelectorAll('.Projects-Container__Card--overview');
 		Array.from(borderedContainer)[index].style.borderLeft = `1rem solid ${code}`;
 
 		const h3Headers = document.querySelectorAll('.h3--Responsive');
