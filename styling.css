@@ -173,8 +173,8 @@ body, html {
 
 .Projects-Container__Card img {
     /* must change max-height, and -width if integrating new pictures */
-    max-height: 36rem;
-    max-width: 85rem;
+    max-height: 37rem;
+    max-width: 64rem;
     margin: 0 auto;
     border: 1px solid var(--secondary-gray);
 }
@@ -199,7 +199,7 @@ h3 {
         flex-direction: column;
     }
     .Projects-Container__Card img {
-        max-height: 41em;
+        max-height: 40em;
         max-width: 65rem;
     }
     .Projects-Container__Card > div {
@@ -220,6 +220,13 @@ h3 {
         padding: 0;
     }
   }
+
+ /* @media (min-width: 1281px) {
+    .Projects-Container__Card img {
+        max-height: 37rem;
+        max-width: 64rem;
+    }
+ }  */
 
 @media (max-width: 768px) {
     .Projects-Container__Card img {
