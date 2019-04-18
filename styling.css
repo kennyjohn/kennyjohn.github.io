@@ -173,7 +173,7 @@ body, html {
 
 .Projects-Container__Card img {
     /* must change max-height, and -width if integrating new pictures */
-    max-height: 37rem;
+    max-height: 37.5rem;
     max-width: 64rem;
     margin: 0 auto;
     border: 1px solid var(--secondary-gray);
@@ -194,13 +194,24 @@ h3 {
     width: 90%; /* change this value if there is a longer project name */
 }
 
+.slide-in {
+    transform: translateX(-30%);
+    opacity: 0;
+    transition: all .7s;
+}
+
+.slide-in.active {
+    opacity: 1;
+    transform: translateX(0%);
+}
+
 @media (max-width: 1280px) { 
     .Projects-Container__Card {
         flex-direction: column;
     }
     .Projects-Container__Card img {
-        max-height: 40em;
-        max-width: 65rem;
+        max-height: 40rem;
+        max-width: 64rem;
     }
     .Projects-Container__Card > div {
         padding: 0;
@@ -219,14 +230,7 @@ h3 {
         max-width: 74%;
         padding: 0;
     }
-  }
-
- /* @media (min-width: 1281px) {
-    .Projects-Container__Card img {
-        max-height: 37rem;
-        max-width: 64rem;
-    }
- }  */
+}
 
 @media (max-width: 768px) {
     .Projects-Container__Card img {

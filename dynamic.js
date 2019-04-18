@@ -40,10 +40,10 @@ const projects = [
 ], projectHexCodes = ['#DE4848', '#6598DE', '#3ACAC9', '#72C2A7']; // Remotivate, Parks & Marks, RGB Game, Stat Tracker
 
 const fillContainer = () => {
-	let container = document.querySelector('.Projects-Container');
+	const container = document.querySelector('.Projects-Container');
 	projects.map((project, index) => {
 		let wrapper = document.createElement('div');
-		wrapper.className = 'Projects-Container__Card';
+		wrapper.className = `Projects-Container__Card${index > 0 ? ' slide-in' : ''}`;
 		wrapper.innerHTML = `
 		<div class="Projects-Container__Card--column">
 			<div class="Projects-Container__Card--overview">
@@ -75,6 +75,32 @@ const addContainerBorders = () => {
 	});
 }
 
+function debounce(func, wait = 20, immediate = true) {
+	var timeout;
+	return function() {
+	  var context = this, args = arguments;
+	  var later = function() {
+		timeout = null;
+		if (!immediate) func.apply(context, args);
+	  };
+	  var callNow = immediate && !timeout;
+	  clearTimeout(timeout);
+	  timeout = setTimeout(later, wait);
+	  if (callNow) func.apply(context, args);
+	};
+  }
+
+function checkSlide() {
+	const projectCards = document.querySelectorAll('.slide-in');
+	projectCards.forEach( projectCard => {
+		const slideInAt = (window.scrollY + window.innerHeight) - projectCard.offsetHeight / 2;
+		const isHalfShown = slideInAt > projectCard.offsetTop;
+		if(isHalfShown) {
+			projectCard.classList.add('active');
+		} 
+	});
+}
+
 $(document).ready(function() { // once the whole page is ready
 	var scrollButton = $('.Buttons__Bio--CTA');
 	scrollButton.click(function(e) {
@@ -83,4 +109,6 @@ $(document).ready(function() { // once the whole page is ready
 			scrollTop: $('.Projects-Container').offset().top // how far away from the top we are
 		}, 900);
 	});
+	// window.addEventListener('scroll', debounce(checkSlide));
+	$(window).scroll(debounce(checkSlide));
 });
