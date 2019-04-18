@@ -1,9 +1,3 @@
-// Future feature resources:
-// 	- https://michalsnik.github.io/aos/
-// 	- https://css-tricks.com/aos-css-driven-scroll-animation-library/
-// 	- https://github.com/michalsnik/aos
-// 	- https://www.superhi.com/blog/how-to-add-web-design-elements-that-fade-in-and-out-on-scroll 
-
 const projects = [
 	{
 		name: "Remotivate",
@@ -43,7 +37,7 @@ const fillContainer = () => {
 	const container = document.querySelector('.Projects-Container');
 	projects.map((project, index) => {
 		let wrapper = document.createElement('div');
-		wrapper.className = `Projects-Container__Card${index > 0 ? ' slide-in' : ''}`;
+		wrapper.className = `Projects-Container__Card${window.innerWidth >= 768 && index > 0 ? ' slide-in' : ''}`;
 		wrapper.innerHTML = `
 		<div class="Projects-Container__Card--column">
 			<div class="Projects-Container__Card--overview">
@@ -69,13 +63,14 @@ const addContainerBorders = () => {
 	projectHexCodes.map((code, index) => {
 		const borderedContainer = document.querySelectorAll('.Projects-Container__Card--overview');
 		Array.from(borderedContainer)[index].style.borderLeft = `1rem solid ${code}`;
-
+		
 		const h3Headers = document.querySelectorAll('.h3--Responsive');
 		Array.from(h3Headers)[index].style.borderTop = `1rem solid ${code}`;
 	});
 }
 
-function debounce(func, wait = 20, immediate = true) {
+function debounce(func, wait = 12, immediate = true) {
+	/* reducing wait value may mitigate performance but makes transitions smoother */
 	var timeout;
 	return function() {
 	  var context = this, args = arguments;
@@ -88,16 +83,22 @@ function debounce(func, wait = 20, immediate = true) {
 	  timeout = setTimeout(later, wait);
 	  if (callNow) func.apply(context, args);
 	};
-  }
+}
 
 function checkSlide() {
-	const projectCards = document.querySelectorAll('.slide-in');
-	projectCards.forEach( projectCard => {
+	const projectCards = document.querySelectorAll('.Projects-Container__Card');
+	projectCards.forEach(projectCard => {
 		const slideInAt = (window.scrollY + window.innerHeight) - projectCard.offsetHeight / 2;
+		const containerBottom = projectCard.offsetTop + projectCard.offsetHeight;
+
 		const isHalfShown = slideInAt > projectCard.offsetTop;
-		if(isHalfShown) {
+		const isNotScrolledPast = window.scrollY < containerBottom;
+		
+		if(isHalfShown && isNotScrolledPast) {
 			projectCard.classList.add('active');
-		} 
+		} else {
+			projectCard.classList.remove('active');
+		}
 	});
 }
 
