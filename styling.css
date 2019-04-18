@@ -195,16 +195,17 @@ h3 {
 }
 
 .slide-in {
-    transform: translateX(-30%);
     -webkit-transform: translateX(-30%);
+    transform: translateX(-30%);
     opacity: 0;
+    -webkit-transition: all .7s;
     transition: all .7s;
 }
 
 .slide-in.active {
     opacity: 1;
+    -webkit-transform: translateX(0%);
     transform: translateX(0%);
-    -webkit-transform: translateX(0%)
 }
 
 @media (max-width: 1280px) { 
