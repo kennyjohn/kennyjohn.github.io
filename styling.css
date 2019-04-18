@@ -198,8 +198,8 @@ h3 {
     -webkit-transform: translateX(-30%);
     transform: translateX(-30%);
     opacity: 0;
-    -webkit-transition: all .7s;
     -webkit-transition: -webkit-transform .7s;
+    -webkit-transition: transform .7s;
     transition: all .7s;
 }
 
