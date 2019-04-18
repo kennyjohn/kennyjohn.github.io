@@ -196,6 +196,7 @@ h3 {
 
 .slide-in {
     transform: translateX(-30%);
+    -webkit-transform: translateX(-30%);
     opacity: 0;
     transition: all .7s;
 }
@@ -203,6 +204,7 @@ h3 {
 .slide-in.active {
     opacity: 1;
     transform: translateX(0%);
+    -webkit-transform: translateX(0%)
 }
 
 @media (max-width: 1280px) { 
